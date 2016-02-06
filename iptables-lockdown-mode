@@ -36,3 +36,10 @@
 /sbin/iptables -A OUTPUT -j COMMON
 /sbin/iptables -A FORWARD -j COMMON
 /sbin/iptables -A FORWARD -j PACKET
+if [ $1 -eq 22 ]; then
+  echo "Leaving port 22 open..."
+  /sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+else
+  /sbin/iptables -I INPUT -p tcp --dport 22 -j DROP
+  echo "Fully locked down."
+fi
