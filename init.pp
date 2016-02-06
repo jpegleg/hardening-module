@@ -8,10 +8,10 @@ case $operatingsystem {
       mode   => '0644',
   file { '/usr/local/bin/exportenv',
       ensure => file,
-      source => 'puppet:///modules/hardening-module/iptables-centos'
-      owner  => 'root'
-      group  => 'root'
-      mode   => '0755'
+      source => 'puppet:///modules/hardening-module/iptables-centos',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
     }
   }
 
@@ -174,6 +174,5 @@ case $operatingsystem {
       command=> 'exportenv',
       path   => '/usr/local/bin/exportenv',
   }
-
 
 }
