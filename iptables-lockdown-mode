@@ -1,5 +1,5 @@
 #!/bin/sh
-# IPTABLES CENTOS LOCKDOWN MODE #----------------->>
+# IPTABLES LOCKDOWN MODE #----------------->>
 #################################--------->>
 /sbin/iptables -P INPUT DROP
 /sbin/iptables -P OUTPUT DROP
