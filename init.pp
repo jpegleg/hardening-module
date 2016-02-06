@@ -186,9 +186,18 @@ case $operatingsystem {
       group  => 'root',
       mode   => '0755',
     }
-  exec { 'exportenv',
-      command=> 'exportenv 22',
-      path   => '/usr/local/bin/exportenv',
+  file { '/usr/local/bin/exportlimits',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/limits',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+  exec { 'exportlimits',
+      command=> 'exportlimits',
+      path   => '/usr/local/bin/exportlimits',
+  exec { 'exportenv2',
+      command=> 'exportenv2 22',
+      path   => '/usr/local/bin/exportenv2',
   }
 
 }
