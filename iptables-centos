@@ -36,4 +36,3 @@
 /sbin/iptables -A OUTPUT -j COMMON
 /sbin/iptables -A FORWARD -j COMMON
 /sbin/iptables -A FORWARD -j PACKET
-/etc/init.d/iptables save
