@@ -36,10 +36,20 @@
 /sbin/iptables -A OUTPUT -j COMMON
 /sbin/iptables -A FORWARD -j COMMON
 /sbin/iptables -A FORWARD -j PACKET
-if [ $1 -eq 22 ]; then
-  echo "Leaving port 22 open..."
-  /sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+if [ $1 -ne 0 ]; then
+  echo "Leaving port $1 open..."
+  /sbin/iptables -I INPUT -p tcp --dport $1 -j ACCEPT
+  echo "[ run complete $(date +'%m-%d-%y:%M:%S') ]"
 else
-  /sbin/iptables -I INPUT -p tcp --dport 22 -j DROP
+  /sbin/iptables -I INPUT -p tcp --dport $1 -j DROP
   echo "Fully locked down."
+  echo "[ run complete $(date +'%m-%d-%y:%M:%S') ]"
 fi
+if [ $2 = andopen ]; then
+  echo "Also opening $3 ..."
+  /sbin/iptables -I INPUT -p tcp --dport $3 -j ACCEPT
+  echo "Locked down but on $1 and $3"
+  echo "[ run complete $(date +'%m-%d-%y:%M:%S') ]"
+else
+  echo "[ run complete $(date +'%m-%d-%y:%M:%S') ]"
+fi 2> /dev/null
