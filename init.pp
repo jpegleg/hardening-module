@@ -8,7 +8,7 @@ case $operatingsystem {
       mode   => '0644',
   file { '/usr/local/bin/exportenv',
       ensure => file,
-      source => 'puppet:///modules/hardening-module/iptables-centos',
+      source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
       owner  => 'root',
       group  => 'root',
       mode   => '0755',
@@ -26,6 +26,15 @@ case $operatingsystem {
       owner  => root,
       group  => root,
       mode   => '0755',
+  file { '/usr/local/bin/exportenv2',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+  exec { 'exportenv2',
+      command=> 'exportenv'2,
+      path   => '/usr/local/bin/exportenv2',
     }
   }
 
@@ -34,6 +43,13 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root'
       mode   => '755',
+  file { '/usr/local/bin/exportenv',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+    }
   }
 }
 
