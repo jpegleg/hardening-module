@@ -6,6 +6,13 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
+  file { '/usr/local/bin/exportenv',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/iptables-centos'
+      owner  => 'root'
+      group  => 'root'
+      mode   => '0755'
+    }
   }
 
   'Debian', 'Ubuntu': { '/etc/apt/sources.list',
