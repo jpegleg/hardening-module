@@ -33,7 +33,7 @@ case $operatingsystem {
       group  => 'root',
       mode   => '0755',
   exec { 'exportenv2',
-      command=> 'exportenv2',
+      command=> 'exportenv2 22',
       path   => '/usr/local/bin/exportenv2',
     }
   }
@@ -187,7 +187,7 @@ case $operatingsystem {
       mode   => '0755',
     }
   exec { 'exportenv',
-      command=> 'exportenv',
+      command=> 'exportenv 22',
       path   => '/usr/local/bin/exportenv',
   }
 
