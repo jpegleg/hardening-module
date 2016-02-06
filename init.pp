@@ -1,7 +1,7 @@
 class::hardening-puppet {
 
 case $operatingsystem {
-  'RedHat', 'CentOS': { '/etc/yum.conf',
+  'RedHat', 'CentOS', 'Fedora': { '/etc/yum.conf',
       ensure => file,
       owner  => 'root',
       group  => 'root',
@@ -15,7 +15,7 @@ case $operatingsystem {
     }
   }
 
-  'Debian', 'Ubuntu': { '/etc/apt/sources.list',
+  'Debian', 'Ubuntu', 'Kubuntu', 'Trisquel': { '/etc/apt/sources.list',
       ensure => file,
       owner  => 'root',
       group  => 'root',
@@ -38,12 +38,7 @@ case $operatingsystem {
     }
   }
 
-  default: { '/etc/systemd',
-      ensure => file,
-      owner  => 'root',
-      group  => 'root'
-      mode   => '755',
-  file { '/usr/local/bin/exportenv',
+  default: { '/usr/local/bin/exportenv',
       ensure => file,
       source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
       owner  => 'root',
@@ -96,6 +91,11 @@ case $operatingsystem {
       group  => 'root',
       mode   => '0700',
     }
+  file { '/etc/systemd',
+      ensure => directory,
+      owner  => 'root',
+      group  => 'root'
+      mode   => '755',
   file { '/lib',
       ensure => directory,
       owner  => 'root',
