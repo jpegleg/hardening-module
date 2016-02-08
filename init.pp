@@ -1,4 +1,4 @@
-class::hardening-puppet {
+class hardening-puppet {
 
 case $operatingsystem {
   'RedHat', 'CentOS', 'Fedora': { '/etc/yum.conf',
