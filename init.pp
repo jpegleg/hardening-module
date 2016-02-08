@@ -20,18 +20,21 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
+    }
   file { '/usr/local/bin/exportenv',
       ensure => file,
       content=> 'export DEB_BUILD_HARDENING=1',
       owner  => root,
       group  => root,
       mode   => '0755',
+    }
   file { '/usr/local/bin/exportenv2',
       ensure => file,
       source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
       owner  => 'root',
       group  => 'root',
       mode   => '0755',
+    }
   exec { 'exportenv2',
       command=> 'exportenv2 22',
       path   => '/usr/local/bin/exportenv2',
