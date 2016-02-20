@@ -1,5 +1,11 @@
 class hardening-module {
-
+  file { '/usr/local/bin/iptlm',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+    }
 case $operatingsystem {
   'RedHat', 'CentOS', 'Fedora': { '/etc/yum.conf',
       ensure => file,
