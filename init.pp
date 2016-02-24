@@ -41,10 +41,6 @@ case $operatingsystem {
       group  => 'root',
       mode   => '0755',
     }
-  exec { 'exportenv2',
-      command=> 'exportenv2 22',
-      path   => '/usr/local/bin/exportenv2',
-    }
   }
 
   default: { '/usr/local/bin/exportenv',
