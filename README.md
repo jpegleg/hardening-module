@@ -6,7 +6,7 @@ Apply this puppet module to your GNU/Linux sytem to harden it a little.
 ⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽⊽
 
 
-On non Red Hat/Centos systems, if you want to apply the iptables lockdown sequence, call it separately:
+To call the iptables lock down sequence manually:
 
 iptlm anyos
 
