@@ -54,5 +54,5 @@ if [ $2=andopen ]; then
 else
   echo "[ run complete $(date +'%m-%d-%y:%M:%S') ]"
 fi 2> /dev/null
-echo $(date) > /var/tmp/iptables-lockdown-mode.lock
+echo $(date +'%m-%d-%y:%M:%S') > /var/tmp/iptables-lockdown-mode.lock
 fi
