@@ -34,3 +34,8 @@ The lock file contains the date from when it was written, the timestamp of when 
 
 $ cat /etc/iptables-lockdown-mode.lock 
 Tue Feb 23 20:30:56 MST 2016
+
+The above lock concepts apply to the hardening-module lock file as well:
+
+$ cat /etc/hardening-module.lock 
+Tue Feb 23 20:30:59 MST 2016
