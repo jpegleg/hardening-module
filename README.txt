@@ -11,7 +11,7 @@ $ hardening-module
 
 Run the script a second time:
 
-$ rm -f /etc/hardening-module.lock
+$ rm -f /var/tmp/hardening-module.lock
 $ hardening-module
 
 To call the iptables lock down sequence manually:
@@ -28,14 +28,14 @@ $ ipltm 22 andopen 443
 
 The module by default will not leave any ports open when applied and not run the sequence again until the lock file is removed.
 
-$ rm /etc/iptables-lockdown-mode.lock
+$ rm /var/tmp/iptables-lockdown-mode.lock
 
 The lock file contains the date from when it was written, the timestamp of when the iptables sequence was last run:
 
-$ cat /etc/iptables-lockdown-mode.lock 
+$ cat /var/tmp/iptables-lockdown-mode.lock 
 Tue Feb 23 20:30:56 MST 2016
 
 The above lock concepts apply to the hardening-module lock file as well:
 
-$ cat /etc/hardening-module.lock 
+$ cat /var/tmp/hardening-module.lock 
 Tue Feb 23 20:30:59 MST 2016
