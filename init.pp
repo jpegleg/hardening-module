@@ -12,6 +12,12 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
+  file { '/usr/local/bin/hardening-module',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/hardening-module-centos',
+      owner  => 'root',
+      mode   => '0644',
+    }
   file { '/usr/local/bin/exportenv',
       ensure => file,
       source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
@@ -51,6 +57,12 @@ case $operatingsystem {
       mode   => '0755',
     }
   }
+  default: {  '/usr/local/bin/hardening-module',
+      ensure => file,
+      source => 'puppet:///modules/hardening-module/hardening-module-default',
+      owner  => 'root',
+      mode   => '0644',
+    }
 }
 
   file { '/etc/passwd',
@@ -64,7 +76,7 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0440',
-  }
+    }
   file { '/etc/shadow',
       ensure => file,
       owner  => 'root',
@@ -197,12 +209,18 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0755',
+    }
   exec { 'exportlimits',
       command=> 'exportlimits',
       path   => '/usr/local/bin/exportlimits',
+    }
   exec { 'exportenv2',
       command=> 'exportenv2 22',
       path   => '/usr/local/bin/exportenv2',
-  }
+    }
+  exec { 'hardening-module',
+      command=> 'hardening-module',
+      path   => '/usr/local/bin/hardening-module',
+    }
 
 }
