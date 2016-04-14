@@ -32,7 +32,6 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-    }
   file { '/usr/local/bin/exportenv',
       ensure => file,
       content=> 'export DEB_BUILD_HARDENING=1',
@@ -55,15 +54,13 @@ case $operatingsystem {
       owner  => 'root',
       group  => 'root',
       mode   => '0755',
-    }
   }
   default: {  '/usr/local/bin/hardening-module',
       ensure => file,
       source => 'puppet:///modules/hardening-module/hardening-module-default',
       owner  => 'root',
       mode   => '0644',
-    }
-}
+  }
 
   file { '/etc/passwd',
       ensure => file,
