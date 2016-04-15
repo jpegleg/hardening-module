@@ -49,8 +49,8 @@ case $operatingsystem {
       group  => 'root',
       mode   => '0755',
     }
-  
-  default: { 
+ } 
+  'default': { 
   file { '/usr/local/bin/exportenv':
       ensure => file,
       source => 'puppet:///modules/hardening-module/iptables-lockdown-mode',
@@ -96,7 +96,7 @@ case $operatingsystem {
       group  => 'root',
       mode   => '0755',
     }
-  file { '/etc:
+  file { '/etc':
       ensure => directory,
       owner  => 'root',
       group  => 'root',
@@ -111,8 +111,8 @@ case $operatingsystem {
   file { '/etc/systemd':
       ensure => directory,
       owner  => 'root',
-      group  => 'root'
-      mode   => '755',
+      group  => 'root',
+      mode   => '0755',
     }
   file { '/lib':
       ensure => directory,
